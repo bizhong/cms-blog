@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <!-- 考虑移动设备 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <!--搜索页面样式-->
+    <link rel="stylesheet" href="/styles/style.css"/>
+</head>
+<body>
+<header id="head">
+    <nav class="nav">
+        <ul>
+            <li><a href="/home">首页</a></li>
+            <li><a href="/group">小组专区</a></li>
+            <li><a href="/achieve">成果展示</a></li>
+            <li><a href="/team">团队历程</a></li>
+            <li><a href="/about">关于我们</a></li>
+            <li><a href="/message">留言板</a></li>
+            <li><a href="javascript:void(0);" id="search"></a></li>
+        </ul>
+    </nav>
+    <aside id="searchview">
+        <div class="searchview-content">
+            <form class="searchform" action="/search" method="GET">
+                <input type="text" name="s" value="{{s}}" id="s" placeholder="输入关键字">
+                <input type="submit" name="submit" value="精确搜索" class="accurate-search">
+                <input type="submit" name="submit" value="模糊搜索" class="fuzzy-search">
+            </form>
+        </div>
+    </aside>
+</header>
+    {% block content %}
+    {% endblock %}
+<footer class="footer">
+    <p>版权所有 © 2009-2015 <a href="http://www.new-thread.com/">新思路团队</a></p>
+</footer>
+</body>
+</html>

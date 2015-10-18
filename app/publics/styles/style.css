@@ -1,0 +1,324 @@
+/* reset */
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+a,button,input{-webkit-tap-highlight-color:rgba(255,0,0,0);}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+del,ins,u,s,a,a:hover{color:#428bca;text-decoration:none;}
+body,textarea,input,button,select,keygen,legend{font:16px 'Microsoft YaHei',Arial,Helvetica,sans-serif;color:#808080;outline:0;-webkit-appearance:none;}
+html,body{background:#fff;height:100%;width:100%;}
+*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+#head{
+	width: 100%;
+	height: 75px;
+	border-bottom: 1px solid #cccfd5;
+}
+.nav,.nav ul{
+	width: 998px;
+	height: 100%;
+	margin: 0 auto;
+}
+.nav ul li{
+	float: left;
+	width: 14.285714%;
+}
+.nav ul li a{
+	color: #333;
+	display: block;
+	text-align: center;
+	line-height: 75px;
+}
+.nav ul li a:hover{
+	color: #428bca;
+}
+#search{
+	background: url(/images/search.png) center center no-repeat;
+	width: 100%;
+	height: 75px;
+}
+#searchview{
+	display: none;
+	background: rgba(255,255,255,0.9);
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.searchview-content{
+	width: 998px;
+	height: 100%;
+	margin: 0 auto;
+}
+.searchform{
+	margin: 10px 0;
+	width: 100%;
+	height: 45px;
+}
+#s,.accurate-search,.fuzzy-search{
+	border: 0;
+	border-radius: 0;
+	font: 1.5em/1.875 'Microsoft YaHei',Arial,Helvetica,sans-serif;
+	height: 45px;
+}
+#s{
+	border: 1px solid #d7d7d7;
+	color: #333;
+	padding-left: 10px;
+	width: 690px;
+	float: left;
+}
+.accurate-search,.fuzzy-search{
+	background: #19bd9b;
+	color: #fff;
+	cursor: pointer;
+	width: 149px;
+	float: left;
+}
+.accurate-search{
+	margin-right: 10px;
+}
+.clear{
+	clear: both;
+}
+.main{
+	width: 998px;
+	margin: 0 auto;
+}
+#search-head{
+	background: rgba(255,255,255,0.9);
+	width: 998px;
+}
+.search-title{
+	font-weight: normal;
+}
+#search-nav{
+	padding: 10px 0;
+}
+#search-nav a,#search-nav b{
+	color: #808080;
+	font: 1.75em/1 'Microsoft YaHei',Arial,Helvetica,sans-serif;
+}
+#search-nav a.active{
+	color: #81d5e7;
+	text-decoration: none;
+}
+#search-nav b{
+	margin: 0 40px;
+}
+.articles{
+	width: 690px;
+	margin: 20px 0;
+	float: left;
+}
+.sidebar{
+	background: #eee;
+	width: 288px;
+	height: 700px;
+	margin: 20px 0 20px 20px;
+	float: left;
+}
+#search-results .articles{
+	margin: 0;
+}
+#search-results .sidebar{
+	margin: 0 0 20px 20px;
+}
+.article{
+	color: #333;
+	width: 690px;
+	margin-bottom: 20px;
+}
+.article:hover{
+	box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+.article a{
+	display: block;
+}
+.article img{
+	width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+.article section{
+	padding: 20px;
+}
+.article h1{
+	font-size: 24px;
+	line-height: 24px;
+	font-weight: normal;
+	margin-bottom: 15px;
+}
+.article h1 a{
+	color: #333;
+}
+.article span,.article span a{
+	color: #656565;
+	font-size: 14px;
+	line-height: 14px;
+}
+.article span a,.article p a{
+	display: inline;
+}
+.article h1 a:hover,.article span a:hover,span.article-tag a:hover{
+	color:#428bca;
+}
+.article p{
+	margin: 10px 0;
+}
+span.article-tag a{
+	background: #CCC;
+	color: #fff;
+	padding: 0 5px;
+	margin-right: 5px;
+}
+.pagenav{
+	text-align: center;
+}
+.pagenav a,.current-page{
+	border: 1px solid #428bca;
+	width: 23px;
+	display: inline-block;
+}
+.current-page{
+	background: #428bca;
+	color: #fff;
+}
+.pagenav a:hover{
+	background: #428bca;
+	color: #fff;
+}
+.footer{
+	border-top: 1px solid #cccfd5;
+	padding: 20px 0;
+}
+.footer p{
+	text-align: center;
+}
+/* 文章页样式 */
+.singleBox{
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	width: 70%;
+	/*background: gray;*/
+	margin: 0px auto;
+}
+.s_content{
+	width: 70%;
+	box-shadow: 0px 0px 3px #B5B5B5;
+	margin: 50px 0px;
+	padding-bottom: 1px;
+
+}
+.Article{
+	padding: 15px 10px 30px;
+}
+.s_article{
+	width: 100%;
+	padding-bottom: 30px;
+	overflow: hidden;
+	border-bottom: 2px solid #61CAE1;
+	
+}
+.s_aboutArticle{
+	color: #CCC3C7;
+	font-size: 15px;
+	width: 100%;
+}
+.s_aboutArticle .s_left{
+	display: block;
+	float: left;
+
+}
+.s_aboutArticle .s_right{
+	float: right;
+	display: block;
+}
+.s_content h3{
+	width: 100%;
+	height:100%;   
+    font-size:25px;   
+    color:#0586C9;   
+    line-height:2em;
+    color: #CCC3C7;
+} 
+.s_content p{   
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+    font-size:15px;/*字体大小*/  
+    text-indent:2em;/*首行缩进两个单位*/  
+    line-height:1.5em;/*行距为1.5个单位*/  
+    padding:10px;/*用内边距代替外边距来设置段间距*/  
+    margin:0;/*去掉默认的段间距*/  
+	text-align: justify;
+    }
+.s_tags{
+	margin: 20px 0px;
+}
+.s_tags .tag{
+	font-size: 10px;
+	display: inline-block;
+	padding: 1px 5px;
+	font-weight: bold;
+	font-family: arial;
+	background: #CCCCCC;
+	color: white;
+}
+.s_pic img{
+	width: 100%;
+	height: 200px;
+	display: block;
+}
+.s_comments{
+	width: 100%;
+	/*background: gray;*/
+}
+.s_comments .s_comment{
+	width: 100%;
+	/*background: blue;*/
+	border-bottom: 1px solid #DED6D6;
+}
+.s_comments .s_comment img{
+	display: block;
+	width: 50px;
+	height: 50px;
+	margin: 0px 10px;
+	float: left;
+}
+.s_comments .s_comment span{
+	margin-top: 20px;
+	line-height: 25px;
+	display: block;
+	float: left;
+}
+.clear{
+	clear: both;
+}
+.form .emial{
+	width: 250px;
+	outline: none;
+	height: 30px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.form textarea{
+	width: 550px;
+	height: 100px;
+	outline: none;
+	float: left;
+}
+.form .btn{
+	height: 50px;
+	height: 100px;
+	background: #7DFCA9;
+	float: left;
+	color: #6B71F7;
+}

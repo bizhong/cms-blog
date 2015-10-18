@@ -1,0 +1,32 @@
+{% extends './layouts/web.html' %}
+
+{% block content %}
+<div class="main">
+    <section class="articles">
+    {% for post in posts -%}
+        <article class="article">
+            <a href="/article/{{post.id}}"><img src="/files/article.jpg"></a>
+            <section>
+                <h1><a href="/article/{{post.id}}">{{post.title}}</a></h1>
+                <span>{{post.time}} / <a href="/{{post.author}}">{{post.author}}</a> / <a href="/{{post.classes}}">{{post.classes}}</a> / <a href="/article/{{post.id}}/#respond">{{post.comments.users.length + post.comments.visitor.length}} Comments</a></span>
+                <p>{{post.content}}<a href="/article/{{post.id}}"> 阅读全文</a></p>
+                <span class="article-tag">{% for tag in post.tag -%}<a href="/tag/{{tag}}">{{tag}}</a>{%- endfor %}</span>
+            </section>
+        </article>
+    {%- endfor %}
+        <div class="pagenav">
+        {% if perpagenum < total %}
+            {% for page in pages -%}
+            {% if loop.index == current_page %}<span class="current-page">{{page}}</span>{% else %}<a href="/{{category}}/page/{{page}}">{{page}}</a>{% endif %}
+            {%- endfor %}
+            <span>共{{pages.length}}页</span>
+        {% else %}
+        {% endif %}
+        </div>
+    </section>
+    <aside class="sidebar"></aside>
+    <section class="clear"></section>
+</div>
+<!--首页页面脚本文件-->
+<script type="text/javascript" src="/script/home.js"></script>
+{% endblock %}

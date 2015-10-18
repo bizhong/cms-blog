@@ -1,0 +1,122 @@
+{% extends './layouts/web.html' %}
+<!-- {% block content %}
+<h1>{{art_title}}</h1>
+<span>{{art_tags[0]}}</span>
+<span>{{art_author}}</span>
+<span>{{art_id}}</span>
+<p>{{art_content}}</p>
+{% for item in art_comments_visitor %}
+<div>{{item.userEmail}}</div>
+<div>{{item.content}}</div>
+<div>{{item.time}}</div>
+{% endfor %}
+{% for item in art_comments_users %}
+<div>{{item.userName}}</div>
+<div>{{item.content}}</div>
+<div>{{item.time}}</div>
+{% endfor %}
+{% endblock %} -->
+
+
+{% block content %}
+<div class="singleBox">
+		<!-- 面包屑导航 -->
+		<div class="s_crumb">
+			
+		</div>
+		
+		<!-- 文章 -->
+		<div class="s_content">
+			<!-- 文章图片 -->
+			<div class="s_pic">
+				<img src="/images/sl3.jpg">
+			</div>
+			<div class="Article">
+				<!-- 文章题目 -->
+				<h3 class="s_title">{{art_title}}</h3>
+				<!-- 文章相关 -->
+				<div class="s_aboutArticle">
+					<span class="s_left">{{art_time}} / {{art_comments.length}} comments</span>
+					<!-- <span class="s_right">0 views</span> -->
+				</div>
+				<!-- 文章内容 -->
+				<div class="s_article">
+					<p>
+						{{art_content}}
+						
+					</p>
+				</div>
+				<!-- 文章标签 -->
+				<div class="s_tags">
+					{% for item in art_tags %}
+					<span class="tag">| {{item}}</span>
+					{% endfor %}
+				</div>
+				<!-- 文章评论 -->
+				<div class="s_comments">
+					<div>文章评论</div>
+					{% for item in art_comments %}
+						{% if item.userEmail %}
+						<div class="s_comment">
+						    <img src="/images/q1.png">
+							<span><em>{{item.userEmail}}：</em>{{item.content}}</span>
+							<div class="clear"></div>
+						</div>
+						{% endif %}
+						{% if item.userName %}
+						<div class="s_comment">
+						    <img src="/images/q1.png">
+							<span><em>{{item.userName}}：</em>{{item.content}}</span>
+							<div class="clear"></div>
+						</div>
+						{% endif %}
+					{% endfor %}
+					<form class="form" action="/article/comments" method="POST">
+						{% if !user %}
+							<label for="emial" class="visitorEmail">邮箱</label>
+							<input class="emial" type="emial" name="emial" value="">
+						{% endif %}
+							<input class="articleId" type="hidden" name="articleId" value="{{art_id}}"/>
+							<input class="userName" type="hidden" name="userName" value="{{user.name}}">
+							<textarea class="contents" name="contents" cols="89" rows="5" id="comment" placeholder="comment"></textarea>
+							<input class="btn" name="button" type="submit" value="发表评论" id="submit" />
+							<!-- <div id="submit" class="btn">发表评论</div> -->
+							<div class="clear"></div>
+					</form> 
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<script>
+
+		// $('#submit').on('click',function(){
+		// 	var $emial = $('.emial').val();
+		// 	var $articleId = $('.articleId').val();
+		// 	var $userName = $('.userName').val();
+		// 	var $contents = $('.contents').val();
+		// 		$.ajax({
+		// 		type: "POST",
+		// 		url: "/article/comments",
+		// 		async: true,//异步
+		// 		dataType: "json",//数据的类型
+		// 		data: {
+		// 			emial:$emial,
+		// 			articleId:$articleId,
+		// 			userName:$userName,
+		// 			contents:$contents
+		// 		},
+		// 		success: function (data) {
+		// 			 alert(data);
+		// 			// $this.parents('tr').remove();//将一整行都删除
+		// 			console.log(data);//成功之后就将返回data
+
+		// 	}
+		// 	});
+		// });
+	</script>
+	<!-- sideBar -->
+
+	<!-- footer -->
+	{% endblock %}

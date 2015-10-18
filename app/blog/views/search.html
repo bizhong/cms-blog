@@ -1,0 +1,113 @@
+{% extends './layouts/web.html' %}
+
+{% block content %}
+<div class="main">
+    <header id="search-head">
+        <form class="searchform" action="/search" method="GET">
+            <input type="text" name="s" value="{{s}}" id="s" placeholder="输入关键字">
+            <input type="submit" name="submit" value="精确搜索" class="accurate-search">
+            <input type="submit" name="submit" value="模糊搜索" class="fuzzy-search">
+        </form>
+        {% if submit === '精确搜索' %}
+        <h2 class="search-title">共搜索到 {{titles.length}} 篇标题相关文章，{{authors.length}} 篇作者相关文章，{{tags.length}} 篇标签相关文章。</h2>
+        <nav id="search-nav">
+            <a class="active">标题</a><b>|</b>
+            <a>作者</a><b>|</b>
+            <a>标签</a>
+        </nav>
+        {% else %}
+        <h2 class="search-title">共搜索到 {{contents.length}} 篇相关文章。</h2>
+        <nav id="search-nav"></nav>
+        {% endif %}
+    </header>
+    <div id="search-results">
+        {% if submit === '精确搜索' %}
+        <section class="articles" style="display: block;">
+        {% if err %}
+            <p>{{ signal }}</p>
+        {% endif %}
+        {% if titles.length %}
+            {% for post in titles -%}
+            <article class="article">
+                <a href="/article/{{post.id}}"><img src="/files/article.jpg"></a>
+                <section>
+                    <h1><a href="/article/{{post.id}}">{{post.title}}</a></h1>
+                    <span>{{post.time}} / <a href="/{{post.author}}">{{post.author}}</a> / <a href="/{{post.classes}}">{{post.classes}}</a> / <a href="/article/{{post.id}}/#respond">{{post.comments.users.length + post.comments.visitor.length}} Comments</a></span>
+                    <p>{{post.content}}<a href="/article/{{post.id}}"> 阅读全文</a></p>
+                    <span class="article-tag">{% for tag in post.tag -%}<a href="/tag/{{tag}}">{{tag}}</a>{%- endfor %}</span>
+                </section>
+            </article>
+            {%- endfor %}
+        {% else %}
+            <p>{{ '找不到与“' + s + '”相关的内容' }}</p>
+        {% endif %}
+        </section>
+        <section class="articles" style="display: none;">
+        {% if err %}
+            <p>{{ signal }}</p>
+        {% endif %}
+        {% if authors.length %}
+            {% for post in authors -%}
+            <article class="article">
+                <a href="/article/{{post.id}}"><img src="/files/article.jpg"></a>
+                <section>
+                    <h1><a href="/article/{{post.id}}">{{post.title}}</a></h1>
+                    <span>{{post.time}} / <a href="/{{post.author}}">{{post.author}}</a> / <a href="/{{post.classes}}">{{post.classes}}</a> / <a href="/article/{{post.id}}/#respond">{{post.comments.users.length + post.comments.visitor.length}} Comments</a></span>
+                    <p>{{post.content}}<a href="/article/{{post.id}}"> 阅读全文</a></p>
+                    <span class="article-tag">{% for tag in post.tag -%}<a href="/tag/{{tag}}">{{tag}}</a>{%- endfor %}</span>
+                </section>
+            </article>
+            {%- endfor %}
+        {% else %}
+            <p>{{ '找不到与“' + s + '”相关的内容' }}</p>
+        {% endif %}
+        </section>
+        <section class="articles" style="display: none;">
+        {% if err %}
+            <p>{{ signal }}</p>
+        {% endif %}
+        {% if tags.length %}
+            {% for post in tags -%}
+            <article class="article">
+                <a href="/article/{{post.id}}"><img src="/files/article.jpg"></a>
+                <section>
+                    <h1><a href="/article/{{post.id}}">{{post.title}}</a></h1>
+                    <span>{{post.time}} / <a href="/{{post.author}}">{{post.author}}</a> / <a href="/{{post.classes}}">{{post.classes}}</a> / <a href="/article/{{post.id}}/#respond">{{post.comments.users.length + post.comments.visitor.length}} Comments</a></span>
+                    <p>{{post.content}}<a href="/article/{{post.id}}"> 阅读全文</a></p>
+                    <span class="article-tag">{% for tag in post.tag -%}<a href="/tag/{{tag}}">{{tag}}</a>{%- endfor %}</span>
+                </section>
+            </article>
+            {%- endfor %}
+        {% else %}
+            <p>{{ '找不到与“' + s + '”相关的内容' }}</p>
+        {% endif %}
+        </section>
+        {% else %}
+        <section class="articles" style="display: block;">
+        {% if err %}
+            <p>{{ signal }}</p>
+        {% endif %}
+        {% if contents.length %}
+            {% for post in contents -%}
+            <article class="article">
+                <a href="/article/{{post.id}}"><img src="/files/article.jpg"></a>
+                <section>
+                    <h1><a href="/article/{{post.id}}">{{post.title}}</a></h1>
+                    <span>{{post.time}} / <a href="/{{post.author}}">{{post.author}}</a> / <a href="/{{post.classes}}">{{post.classes}}</a> / <a href="/article/{{post.id}}/#respond">{{post.comments.users.length + post.comments.visitor.length}} Comments</a></span>
+                    <p>{{post.content}}<a href="/article/{{post.id}}"> 阅读全文</a></p>
+                    <span class="article-tag">{% for tag in post.tag -%}<a href="/tag/{{tag}}">{{tag}}</a>{%- endfor %}</span>
+                </section>
+            </article>
+            {%- endfor %}
+        {% else %}
+            <p>{{ '找不到与“' + s + '”相关的内容' }}</p>
+        {% endif %}
+        </section>
+        {% endif %}
+        <aside class="sidebar"></aside>
+        <section class="clear"></section>
+    </div>
+</div>
+<!--搜索页面脚本文件-->
+<script type="text/javascript" src="/script/search.js"></script>
+{% endblock %}
